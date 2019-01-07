@@ -293,7 +293,7 @@ func (e *Endpoint) Serve() error {
 		}()
 	}()
 
-	readError := make(chan error)
+	readError := make(chan error, 1)
 	go func() {
 		readError <- func() error {
 			for {
